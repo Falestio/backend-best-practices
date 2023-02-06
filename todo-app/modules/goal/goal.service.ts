@@ -20,10 +20,9 @@ export async function deleteGoal(goalId: string) {
     return goal;
 }
 
-export async function updateGoal(goalId: string, goal: IGoal) {
+export async function updateGoal(goalId: string, goal: Object) {
     const updatedGoal = await Goal.findByIdAndUpdate(goalId, goal, {
         new: true,
-        useFindAndModify: false,
     });
 
     return updatedGoal;

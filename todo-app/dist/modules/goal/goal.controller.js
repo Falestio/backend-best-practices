@@ -25,3 +25,11 @@ exports.goalRouter.post("/create", (req, res) => __awaiter(void 0, void 0, void 
     const newGoal = yield (0, goal_service_1.createGoal)(req.body);
     res.send(newGoal);
 }));
+exports.goalRouter.put("/update", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const updatedGoal = yield (0, goal_service_1.updateGoal)(req.body.goalId, req.body.goal);
+    res.send(updatedGoal);
+}));
+exports.goalRouter.delete("/delete", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const deletedGoal = yield (0, goal_service_1.deleteGoal)(req.body.goalId);
+    res.send(deletedGoal);
+}));

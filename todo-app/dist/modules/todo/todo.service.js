@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteTodo = exports.getOneTodo = exports.getAllTodo = exports.createTodo = void 0;
+exports.deleteTodo = exports.getOneTodo = exports.getAllTodo = exports.updateTodo = exports.createTodo = void 0;
 const todo_model_1 = require("./todo.model");
 const goal_model_1 = require("../goal/goal.model");
 function createTodo(goalId, todo) {
@@ -22,6 +22,15 @@ function createTodo(goalId, todo) {
     });
 }
 exports.createTodo = createTodo;
+function updateTodo(todoId, todo) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const updateTodo = yield todo_model_1.Todo.findByIdAndUpdate(todoId, todo, {
+            new: true,
+        });
+        return updateTodo;
+    });
+}
+exports.updateTodo = updateTodo;
 function getAllTodo() {
     return __awaiter(this, void 0, void 0, function* () {
         const todos = yield todo_model_1.Todo.find();

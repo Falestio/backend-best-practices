@@ -14,6 +14,13 @@ export async function createTodo(goalId: string, todo: ITodo) {
     return newTodo;
 }
 
+export async function updateTodo(todoId: string, todo: Object) {
+    const updateTodo = await Todo.findByIdAndUpdate(todoId, todo, {
+        new: true,
+    });
+    return updateTodo;
+}
+
 export async function getAllTodo() {
     const todos = await Todo.find();
     return todos;

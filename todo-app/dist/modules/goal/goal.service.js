@@ -43,7 +43,6 @@ function updateGoal(goalId, goal) {
     return __awaiter(this, void 0, void 0, function* () {
         const updatedGoal = yield goal_model_1.Goal.findByIdAndUpdate(goalId, goal, {
             new: true,
-            useFindAndModify: false,
         });
         return updatedGoal;
     });

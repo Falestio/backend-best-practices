@@ -18,12 +18,16 @@ exports.todoRouter.get("/get-one", (req, res) => __awaiter(void 0, void 0, void 
     res.send(todo);
 }));
 exports.todoRouter.get("/get-all", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const todos = (0, todo_service_1.getAllTodo)();
+    const todos = yield (0, todo_service_1.getAllTodo)();
     res.send(todos);
 }));
 exports.todoRouter.post("/create", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const newTodo = yield (0, todo_service_1.createTodo)(req.body.goalId, req.body.todo);
     res.send(newTodo);
+}));
+exports.todoRouter.put("/update", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const updatedTodo = yield (0, todo_service_1.updateTodo)(req.body.todoId, req.body.todo);
+    res.send(updatedTodo);
 }));
 exports.todoRouter.delete('/delete', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const deletedTodo = yield (0, todo_service_1.deleteTodo)(req.body.todoId);
