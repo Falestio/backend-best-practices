@@ -17,6 +17,7 @@ Contoh penerapan bisa dilihat pada file goal.validator.js, disini menggunakan Va
 
 ## Testing Environtment
 
+Lingkungan Testing menggunakan Jest, Supertest, dan Husky. Yang disetup untuk setiap kali kode di commit 
 
 ## Referensi
 

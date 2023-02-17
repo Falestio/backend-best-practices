@@ -17,7 +17,7 @@ todoRouter.get("/get-all", async (req: Request, res: Response) => {
 
 todoRouter.post("/create", validateCreateTodo(), async (req: Request, res: Response) => {
     const newTodo = await createTodo(req.body.goalId, req.body.todo);
-    res.send(newTodo);
+    res.status(201).send(newTodo);
 });
 
 todoRouter.put("/update", mongoIdValidator("todoId"), validateEditTodo(), async (req: Request, res: Response) => {
@@ -27,5 +27,5 @@ todoRouter.put("/update", mongoIdValidator("todoId"), validateEditTodo(), async 
 
 todoRouter.delete('/delete', mongoIdValidator("todoId"), async (req: Request, res: Response) => {
     const deletedTodo = await deleteTodo(req.body.todoId);
-    res.send(deletedTodo);
+    res.status(200).send(deletedTodo);
 });

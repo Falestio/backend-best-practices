@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from "express";
 
 export function validateCreateTodo() {
     return [
-        check("title")
+        check("todo.title")
             .not()
             .isEmpty()
             .withMessage("Todo title is required")
@@ -11,7 +11,7 @@ export function validateCreateTodo() {
             .withMessage("Todo title must be a string")
             .isLength({ max: 100 })
             .withMessage("Todo title must be less than 100 characters"),
-        check("description")
+        check("todo.description")
             .not()
             .isEmpty()
             .withMessage("Todo description is required")

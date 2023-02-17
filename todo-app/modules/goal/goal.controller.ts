@@ -7,17 +7,17 @@ export const goalRouter = Router();
 
 goalRouter.get("/get-one/", mongoIdValidator("goalId"), async (req: Request, res: Response) => {
     const goal = await getOneGoal(req.body.goalId);
-    res.send(goal);
+    res.status(200).send(goal);
 });
 
 goalRouter.get("/get-all", async (req: Request, res: Response) => {
     const goals = await getAllGoal();
-    res.send(goals);
+    res.status(200).send(goals);
 });
 
 goalRouter.post("/create", validateCreateGoal(), async (req: Request, res: Response) => {
     const newGoal = await createGoal(req.body); 
-    res.send(newGoal);
+    res.status(201).send(newGoal);
 });
 
 goalRouter.put("/update", mongoIdValidator("goalId"), validateEditGoal(), async (req: Request, res: Response) => {

@@ -15,7 +15,7 @@ const goal_service_1 = require("./goal.service");
 const validator_1 = require("../../helper/validator");
 const goal_validator_1 = require("./goal.validator");
 exports.goalRouter = (0, express_1.Router)();
-exports.goalRouter.get("/get-one/", (0, validator_1.mongoIdValidator)("goalId"), validator_1.validate, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.goalRouter.get("/get-one/", (0, validator_1.mongoIdValidator)("goalId"), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const goal = yield (0, goal_service_1.getOneGoal)(req.body.goalId);
     res.send(goal);
 }));
@@ -23,15 +23,15 @@ exports.goalRouter.get("/get-all", (req, res) => __awaiter(void 0, void 0, void 
     const goals = yield (0, goal_service_1.getAllGoal)();
     res.send(goals);
 }));
-exports.goalRouter.post("/create", (0, goal_validator_1.validateCreateGoal)(), validator_1.validate, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.goalRouter.post("/create", (0, goal_validator_1.validateCreateGoal)(), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const newGoal = yield (0, goal_service_1.createGoal)(req.body);
     res.send(newGoal);
 }));
-exports.goalRouter.put("/update", (0, validator_1.mongoIdValidator)("goalId"), validator_1.validate, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.goalRouter.put("/update", (0, validator_1.mongoIdValidator)("goalId"), (0, goal_validator_1.validateEditGoal)(), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const updatedGoal = yield (0, goal_service_1.updateGoal)(req.body.goalId, req.body.goal);
     res.send(updatedGoal);
 }));
-exports.goalRouter.delete("/delete", (0, validator_1.mongoIdValidator)("goalId"), validator_1.validate, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.goalRouter.delete("/delete", (0, validator_1.mongoIdValidator)("goalId"), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const deletedGoal = yield (0, goal_service_1.deleteGoal)(req.body.goalId);
     res.send(deletedGoal);
 }));
