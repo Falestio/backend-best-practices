@@ -1,20 +1,22 @@
 - [x]  Endpoint Testing
 - [x]  Data Validation
-- [ ]  Unit Testing
-- [ ]  Fuzz Testing
-- [ ]  Comment best practice (self-documenting code)
+- [x]  Unit Testing
+- [ ]  Authentication
 - [ ]  config files (fix jest)
 - [ ]  logging
 - [ ]  Static code analysis ESlint
 - [ ]  code formatting
 - [ ]  Profiling
-- [ ]  Authentication
 - [ ]  Documentation using Swagger
-- [ ]  Frontend
 - [ ]  Deploying
-- [ ]  Load Testing
 - [ ]  End-to-End Testing
 - [ ]  Rate Limiting
+- [ ]  Load Testing
 - [ ]  Benchmarking
 - [ ]  monitoring
 - [ ]  Write Wiki in Readme
+
+
+- [ ]  Fuzz Testing
+- [ ]  Frontend
+- [ ]  Comment best practice (self-documenting code)
